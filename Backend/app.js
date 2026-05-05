@@ -6,6 +6,9 @@ const cors = require('cors');
 const express = require("express");
 const app = express();
 
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
 const connectTodb = require('./db/db');
 connectTodb();
 const userRoutes = require('./routes/user.routes');

@@ -1,4 +1,93 @@
-# /users/register Endpoint Documentation
+
+# /user/profile Endpoint Documentation
+
+## Endpoint
+
+`GET /user/profile`
+
+## Description
+
+Fetches the authenticated user's profile information. Requires a valid JWT token in the Authorization header.
+
+## Request
+
+- **Headers:**
+  - `Authorization: Bearer <token>`
+
+## Responses
+
+### Success (200 OK)
+
+- **Description:** Returns the authenticated user's profile.
+- **Example Response:**
+
+```
+{
+  "user": {
+    "_id": "6638e1f2c8a4b2e1a1b2c3d4",
+    "fullName": {
+      "firstname": "John",
+      "lastname": "Doe"
+    },
+    "email": "john.doe@example.com"
+  }
+}
+```
+
+### Unauthorized (401 Unauthorized)
+
+- **Description:** Missing or invalid token.
+- **Example Response:**
+
+```
+{
+  "error": "Unauthorized"
+}
+```
+
+# /user/logout Endpoint Documentation
+
+## Endpoint
+
+`POST /user/logout`
+
+## Description
+
+Logs out the authenticated user. Typically, this involves clearing the authentication token on the client side. The server may also clear cookies if used.
+
+logout the current user and blacklist the token provided in cookie in cookie or headers
+
+## Request
+
+- **Headers:**
+  - `Authorization: Bearer <token>` (if required)
+
+### Authentication 
+Requires a valid token in the Authorization header or cookie.
+
+## Responses
+
+### Success (200 OK)
+
+- **Description:** User logged out successfully.
+- **Example Response:**
+
+```
+{
+  "message": "Logged out successfully"
+}
+```
+
+### Unauthorized (401 Unauthorized)
+
+- **Description:** Missing or invalid token.
+- **Example Response:**
+
+```
+{
+  "error": "Unauthorized"
+}
+```
 
 # /user/login Endpoint Documentation
 
@@ -77,6 +166,8 @@ The request body must be a JSON object with the following fields:
 ```
 
 ## Endpoint
+
+# /users/register Endpoint Documentation
 
 `POST /users/register`
 
