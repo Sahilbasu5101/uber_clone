@@ -1,5 +1,81 @@
 # /users/register Endpoint Documentation
 
+# /user/login Endpoint Documentation
+
+## Endpoint
+
+`POST /user/login`
+
+## Description
+
+Authenticates a user with email and password. Returns the user object and a JWT token if credentials are valid.
+
+## Required Data (Request Body)
+
+The request body must be a JSON object with the following fields:
+
+```
+{
+  "email": "string (valid email, required)",
+  "password": "string (required)"
+}
+```
+
+### Example
+
+```
+{
+  "email": "john.doe@example.com",
+  "password": "securePassword123"
+}
+```
+
+## Responses
+
+### Success (200 OK)
+
+- **Description:** User authenticated successfully. Returns the user object and a JWT token.
+- **Example Response:**
+
+```
+{
+  "user": {
+    "_id": "6638e1f2c8a4b2e1a1b2c3d4",
+    "fullName": {
+      "firstname": "John",
+      "lastname": "Doe"
+    },
+    "email": "john.doe@example.com"
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjM4ZTFmMmM4YTRiMmUxYTFiMmMzZDQiLCJpYXQiOjE2ODMzNjQwMDAsImV4cCI6MTY4MzM2NzYwMH0.abc123def456..."
+}
+```
+
+### Invalid Credentials (401 Unauthorized)
+
+- **Description:** Email or password is incorrect.
+- **Example Response:**
+
+```
+{
+  "error": "Invalid email or password"
+}
+```
+
+### Validation Error (400 Bad Request)
+
+- **Description:** Invalid input data. Returns an array of validation errors.
+- **Example Response:**
+
+```
+{
+  "errors": [
+    { "msg": "Invalid email address", "param": "email", "location": "body" },
+    { "msg": "Password is required", "param": "password", "location": "body" }
+  ]
+}
+```
+
 ## Endpoint
 
 `POST /users/register`
