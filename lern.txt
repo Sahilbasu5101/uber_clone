@@ -1,1 +1,20 @@
 cors package :- configure Cross-Origin Resource Sharing (CORS) in Express or Connect applications.By default, web browsers block frontend JavaScript (like fetch or XMLHttpRequest) from reading responses from a different origin (domain, protocol, or port) due to the Same-Origin Policy. The cors package provides a simple way to bypass this restriction by setting the appropriate HTTP response headers, such as Access-Control-Allow-Origin
+{
+    "captain": {
+        "fullName": {
+            "firstname": "test_captain_firstname",
+            "lastname": "test_captain_lastname"
+        },
+        "email": "test_email@gmail.com",
+        "password": "$2b$10$U6HJ.zurz2xFJ57b5bNkv.kvpjxpq6ygwlUyQJLDTkv2vinwmwkHi",
+        "status": "inactive",
+        "vehicle": {
+            "color": "red",
+            "plate": "MP 04 XY6204",
+            "capacity": 3,
+            "vehicleType": "car"
+        },
+        "_id": "69fb05c42bf59215ea970500",
+        "__v": 0
+    }
+}
